@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Result r = navegador.getForObject("https://randomuser.me/api/?gender={q}", Result.class, "female");
 
-        Toast.makeText(getBaseContext(), r.getPhone(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), r.getEmail(), Toast.LENGTH_LONG).show();
 
 
 
