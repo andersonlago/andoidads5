@@ -16,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/Nome" />
+        android:id="@+id/Nome"
+        android:textSize="36sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="38dp"
-        android:id="@+id/Email" />
+        android:id="@+id/Email"
+        android:textSize="36sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,5 +36,29 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="56dp"
-        android:id="@+id/Phone" />
+        android:id="@+id/Phone"
+        android:textSize="36sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Digite o CEP"
+        android:ems="10"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="31dp"
+        android:id="@+id/editText" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_toRightOf="@+id/editText"
+        android:layout_toEndOf="@+id/editText"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:id="@+id/button" />
 </RelativeLayout>
