@@ -42,14 +42,14 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="Digite o CEP"
         android:ems="10"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="31dp"
-        android:id="@+id/editText" />
+        android:id="@+id/editText"
+        android:inputType="textPostalAddress" />
 
     <Button
         android:text="Button"

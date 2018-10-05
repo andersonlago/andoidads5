@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 // OBS: usar http://www.jsonschema2pojo.org para gerar classes pojos do webservice
                 Endereco en = navegador.getForObject("https://viacep.com.br/ws/{p}/json/", Endereco.class,  e.getText().toString()   );
                 Toast.makeText(getApplicationContext(), en.getLocalidade(), Toast.LENGTH_LONG).show();
-
+                nome.setText( en.getComplemento() + en.getBairro() + en.getLogradouro());
             }
         });
 
