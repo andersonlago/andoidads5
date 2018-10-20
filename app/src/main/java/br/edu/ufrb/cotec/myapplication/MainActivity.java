@@ -9,8 +9,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.springframework.http.HttpAuthentication;
+import org.springframework.http.HttpBasicAuthentication;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +44,23 @@ public class MainActivity extends AppCompatActivity {
         e = (EditText) findViewById(R.id.editText);
         b = (Button) findViewById(R.id.button);
 
+
+        HttpAuthentication authHeader = new HttpBasicAuthentication("1621699", "esig");
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setAuthorization(authHeader);
+        HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
+
+
         //define a classe que fara o tratamento do retorno (Json) para converter em um Objeto Java
         navegador.getMessageConverters().add( new GsonHttpMessageConverter());
+        navegador.getMessageConverters().add( new StringHttpMessageConverter());
+
+        ResponseEntity<Usuario> response =
+                navegador.exchange("http://preproducao.ufrb.edu.br/sigrh/rest/mobile/logon/",
+                        HttpMethod.GET, requestEntity, Usuario.class);
+
+         String s = response.getBody().getEmail();
+         Toast.makeText(getBaseContext(), s, Toast.LENGTH_LONG).show();
 
         // OBS: usar http://www.jsonschema2pojo.org para gerar classes pojos do webservice
         Pessoa r = navegador.getForObject("https://randomuser.me/api/?gender={q}", Pessoa.class, "female");
