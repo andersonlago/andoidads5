@@ -1,5 +1,6 @@
 package br.edu.ufrb.cotec.myapplication;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -79,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
                 Endereco en = navegador.getForObject("https://viacep.com.br/ws/{p}/json/", Endereco.class,  e.getText().toString()   );
                 Toast.makeText(getApplicationContext(), en.getLocalidade(), Toast.LENGTH_LONG).show();
                 nome.setText( en.getComplemento() + en.getBairro() + en.getLogradouro());
+
+
+                //instanciar Intent para iniciar uma tela (Activity)
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
+                //Passar paramentro para a outra tela
+                i.putExtra("Nome", nome.getText().toString() + " "  + nome.getText().toString()  );
+
+                //Como pegar o paramentro na outra tela     getIntent().getExtras("Login")
+                startActivity(i);
+
+
             }
         });
 
